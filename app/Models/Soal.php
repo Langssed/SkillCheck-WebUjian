@@ -11,6 +11,13 @@ class Soal extends Model
 
     protected $table = 'soal';
 
+    protected $fillable = [
+        'mapel_id', // Tambahkan ini untuk memungkinkan mass assignment
+        'question',
+        'options',
+        'correct_answer',
+    ];
+
     public function mapel()
     {
         return $this->belongsTo(Mapel::class, 'mapel_id');

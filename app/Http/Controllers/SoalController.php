@@ -42,9 +42,9 @@ class SoalController extends Controller
         $formattedQuestions = $questions->map(function ($question) {
             return [
                 'id' => $question->id,
-                'question' => $question->question, // Sesuaikan dengan kolom 'question' di tabel
-                'options' => json_decode($question->options, true), // Pilihan dalam format JSON
-                'correctAnswer' => $question->correct_answer // Sesuaikan dengan kolom 'correct_answer' di tabel
+                'question' => $question->question,
+                'options' => json_decode($question->options, true),
+                'correctAnswer' => $question->correct_answer
             ];
         });
 

@@ -41,47 +41,22 @@
         <div class="container mx-auto px-6 md:px-12">
             <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">KELOMPOK <span class="text-green-500">SOAL</span></h1>
             <ul class="space-y-6">
-                <!-- Matematika -->
-                <li class="p-4 bg-white shadow-lg rounded-md hover:bg-green-100 hover:shadow-xl transition-all duration-300 ease-in-out">
-                    <a href="soal/matematika" class="flex items-center justify-between cursor-pointer">
-                        <div class="flex items-center">
-                            <div class="text-orange-500 mr-4">
-                                <i class="fas fa-book"></i>
+                @foreach ($mapel as $item)
+                    <li class="p-4 bg-white shadow-lg rounded-md hover:bg-green-100 hover:shadow-xl transition-all duration-300 ease-in-out">
+                        <a href="soal/{{ strtolower(str_replace(' ', '-', $item->nama_mapel)) }}" class="flex items-center justify-between cursor-pointer">
+                            <div class="flex items-center">
+                                <div class="text-green-500 mr-4">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <span class="text-lg font-semibold text-gray-800">{{ $item->nama_mapel }}</span>
                             </div>
-                            <span class="text-lg font-semibold text-gray-800">Matematika</span>
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-500"></i>
-                    </a>
-                </li>
-    
-                <!-- Bahasa Indonesia -->
-                <li class="p-4 bg-white shadow-lg rounded-md hover:bg-green-100 hover:shadow-xl transition-all duration-300 ease-in-out">
-                    <a href="soal/bahasa-indonesia" class="flex items-center justify-between cursor-pointer">
-                        <div class="flex items-center">
-                            <div class="text-green-500 mr-4">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <span class="text-lg font-semibold text-gray-800">Bahasa Indonesia</span>
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-500"></i>
-                    </a>
-                </li>
-    
-                <!-- Bahasa Inggris -->
-                <li class="p-4 bg-white shadow-lg rounded-md hover:bg-green-100 hover:shadow-xl transition-all duration-300 ease-in-out">
-                    <a href="soal/bahasa-inggris" class="flex items-center justify-between cursor-pointer">
-                        <div class="flex items-center">
-                            <div class="text-blue-500 mr-4">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <span class="text-lg font-semibold text-gray-800">Bahasa Inggris</span>
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-500"></i>
-                    </a>
-                </li>
+                            <i class="fas fa-chevron-right text-gray-500"></i>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
-    </main>
+    </main>    
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
