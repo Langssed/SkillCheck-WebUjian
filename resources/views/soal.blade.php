@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-50 font-sans">
 
-    <nav class="flex justify-between items-center py-4 px-8 bg-gradient-to-r from-green-400 to-green-500 shadow-lg sticky top-0 z-10">
+    <nav class="flex justify-between items-center py-4 px-8 bg-gradient-to-r from-green-800 to-green-600 shadow-lg sticky top-0 z-10">
         <div class="flex items-center">
             <img src="/images/logo.png" alt="Logo" class="h-10 mr-3 transform transition duration-300 hover:scale-110">
             <a href="/" class="text-white text-3xl font-extrabold">SKILLCHECK</a>
@@ -37,7 +37,7 @@
         </div>
     </nav>   
 
-    <main class="h-screen bg-gradient-to-b from-green-100 to-gray-50 py-16">
+    <main class="h-[1500px] bg-gradient-to-b from-green-100 to-gray-50 py-16">
         <div class="container mx-auto px-6 md:px-12">
             <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">KELOMPOK <span class="text-green-500">SOAL</span></h1>
             <ul class="space-y-6">
@@ -60,7 +60,7 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <footer class="bg-green-500 py-6">
+    <footer class="bg-gradient-to-r from-green-800 to-green-600 py-6">
         <div class="container mx-auto text-center text-white">
             <p class="text-sm">&copy; 2024 SKILLCHECK. UNIVERSITAS MERCU BUANA.</p>
         </div>

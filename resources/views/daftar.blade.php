@@ -35,7 +35,7 @@
 </head>
 <body>
 
-    <nav class="flex justify-between items-center py-4 px-8 bg-gradient-to-r from-green-400 to-green-500 shadow-lg sticky top-0 z-10">
+    <nav class="flex justify-between items-center py-4 px-8 bg-gradient-to-r from-green-800 to-green-600 shadow-lg sticky top-0 z-10">
         <div class="flex items-center">
             <img src="/images/logo.png" alt="Logo" class="h-10 mr-3 transform transition duration-300 hover:scale-110">
             <a href="/" class="text-white text-3xl font-extrabold">SKILLCHECK</a>
@@ -195,7 +195,7 @@
         </div>
     </main>
 
-    <footer class="bg-green-500 py-6">
+    <footer class="bg-gradient-to-r from-green-800 to-green-600 py-6">
         <div class="container mx-auto text-center text-white">
             <p class="text-sm">&copy; 2024 SKILLCHECK. UNIVERSITAS MERCU BUANA.</p>
         </div>
