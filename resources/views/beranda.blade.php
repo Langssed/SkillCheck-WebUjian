@@ -39,11 +39,11 @@
         <div class="container mx-auto text-center px-6 md:px-12">
             <div class="flex flex-col md:flex-row items-center justify-center gap-12">
                 <div class="md:w-1/2 text-left">
-                    <h1 class="text-5xl font-extrabold text-gray-800 leading-tight">Latihan Online: SD SMP SMA UTBK SBMPTN STAN CPNS</h1>
-                    <p class="mt-6 text-lg text-gray-600">Khawatir gagal ujian? Atau butuh persiapan tes masuk kerja? <span class="font-semibold">Kami solusinya.</span></p>
-                    <p class="mt-4 text-lg text-gray-600">Kami membantu Anda berlatih dan mempersiapkan diri menghadapi berbagai jenis ujian, <span class="font-semibold">SD SMP SMA SMK SBMPTN STAN UTBK CPNS KEBIDANAN PERBANKAN, dan lainnya.</span></p>
-                    <p class="mt-4 text-lg font-semibold text-gray-700">SKILLCHECK menyediakan banyak soal untuk membantu Anda sukses dalam ujian.</p>
-                    <p class="mt-6 text-gray-600">Semangat belajar dan raih sukses Anda!</p>
+                    <h1 class="text-5xl font-extrabold text-gray-800 leading-tight">Latihan Online: Tryout Ujian SMA untuk Jenjang Kuliah</h1>
+                    <p class="mt-6 text-lg text-gray-600">Khawatir menghadapi ujian SMA? Atau butuh persiapan untuk ujian yang akan membawa Anda ke perguruan tinggi? <span class="font-semibold">Kami solusinya.</span></p>
+                    <p class="mt-4 text-lg text-gray-600">Kami membantu Anda berlatih dan mempersiapkan diri untuk ujian SMA, <span class="font-semibold">termasuk ujian nasional dan ujian seleksi masuk perguruan tinggi (UTBK dan lainnya).</span></p>
+                    <p class="mt-4 text-lg font-semibold text-gray-700">SKILLCHECK menyediakan banyak soal yang relevan untuk membantu Anda sukses menghadapi ujian dan menempuh jenjang kuliah.</p>
+                    <p class="mt-6 text-gray-600">Semangat belajar dan raih impian Anda untuk kuliah!</p>
                     <a href="/soal" class="btn-green mt-6 inline-block">Mulai Sekarang</a>
                 </div>
                 <div class="md:w-1/2">

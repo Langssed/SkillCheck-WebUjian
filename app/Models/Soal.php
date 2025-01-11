@@ -13,6 +13,7 @@ class Soal extends Model
 
     protected $fillable = [
         'mapel_id', // Tambahkan ini untuk memungkinkan mass assignment
+        'kategori_id', // Tambahkan ini untuk memungkinkan mass assignment
         'question',
         'options',
         'correct_answer',
@@ -21,5 +22,10 @@ class Soal extends Model
     public function mapel()
     {
         return $this->belongsTo(Mapel::class, 'mapel_id');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }

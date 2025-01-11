@@ -22,6 +22,7 @@
         <div class="bg-white shadow-lg rounded-lg p-6">
             <form action="{{ route('admin.soal.update', $soal->id) }}" method="POST">
                 @csrf
+                @method('PUT')
 
                 <!-- Mata Pelajaran (Non-editable) -->
                 <div class="mb-4">
@@ -30,6 +31,23 @@
                            value="{{ $soal->mapel->nama_mapel }}" 
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-200 cursor-not-allowed" 
                            readonly>
+                </div>
+
+                <!-- Kategori -->
+                <div class="mb-4">
+                    <label for="kategori_id" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <select id="kategori_id" name="kategori_id" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-200"
+                            required>
+                        <option value="">Pilih Kategori</option>
+                        @foreach ($kategori as $item)
+                            <option value="{{ $item->id }}" 
+                                    data-mapel-id="{{ $item->mapel_id }}"
+                                    {{ $soal->kategori_id == $item->id ? 'selected' : '' }}>
+                                {{ $item->nama_kategori }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <!-- Input Pertanyaan -->
@@ -60,10 +78,12 @@
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-200"
                             required>
                         <option value="">Pilih Jawaban Benar</option>
-                        <option value="1" {{ $soal->correct_answer == 0 ? 'selected' : '' }}>Pilihan 1</option>
-                        <option value="2" {{ $soal->correct_answer == 1 ? 'selected' : '' }}>Pilihan 2</option>
-                        <option value="3" {{ $soal->correct_answer == 2 ? 'selected' : '' }}>Pilihan 3</option>
-                        <option value="4" {{ $soal->correct_answer == 3 ? 'selected' : '' }}>Pilihan 4</option>
+                        @for ($i = 1; $i <= count(json_decode($soal->options)); $i++)
+                            <option value="{{ $i }}" 
+                                    {{ $soal->correct_answer + 1 == $i ? 'selected' : '' }}>
+                                Pilihan {{ $i }}
+                            </option>
+                        @endfor
                     </select>
                 </div>
 
@@ -82,5 +102,17 @@
         </div>
 
     </div>
+
+    <!-- Optional Script -->
+    <script>
+        const mapelId = "{{ $soal->mapel_id }}";
+        const kategoriOptions = document.querySelectorAll('#kategori_id option');
+
+        kategoriOptions.forEach(option => {
+            if (option.dataset.mapelId !== mapelId && option.value !== '') {
+                option.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

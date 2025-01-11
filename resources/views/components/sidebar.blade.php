@@ -18,6 +18,10 @@
         class="block text-center bg-green-500 text-white font-semibold py-3 rounded-lg hover:bg-green-600 transition">
             Mapel
         </a>
+        <a href="/admin/kategori" 
+        class="block text-center bg-purple-500 text-white font-semibold py-3 rounded-lg hover:bg-purple-600 transition">
+            Kategori
+        </a>
         <a href="/admin/soal" 
         class="block text-center bg-yellow-500 text-white font-semibold py-3 rounded-lg hover:bg-yellow-600 transition">
             Soal

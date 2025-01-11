@@ -35,8 +35,11 @@ class SoalController extends Controller
             abort(404, 'Mata pelajaran tidak ditemukan.');
         }
 
-        // Ambil soal-soal yang terkait dengan mata pelajaran
-        $questions = Soal::where('mapel_id', $mapel->id)->get();
+        // Ambil soal-soal yang terkait dengan mata pelajaran beserta relasi kategori
+        $questions = Soal::with(['kategori']) // Memuat relasi kategori
+            ->where('mapel_id', $mapel->id)
+            ->get()
+            ->shuffle(); // Mengacak urutan soal
 
         // Format ulang data soal untuk dikirim sebagai JSON
         $formattedQuestions = $questions->map(function ($question) {
@@ -44,7 +47,8 @@ class SoalController extends Controller
                 'id' => $question->id,
                 'question' => $question->question,
                 'options' => json_decode($question->options, true),
-                'correctAnswer' => $question->correct_answer
+                'correctAnswer' => $question->correct_answer,
+                'kategori' => $question->kategori->nama_kategori ?? 'Tidak ada kategori', // Menambahkan nama kategori
             ];
         });
 

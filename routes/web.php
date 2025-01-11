@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\AdminMapelController;
+use App\Http\Controllers\AdminKategoriController;
 use App\Http\Controllers\AdminSoalController;
 use App\Http\Controllers\AdminUserController;
 
@@ -28,13 +29,24 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/delete/{id}', [AdminMapelController::class, 'destroy'])->name('admin.mapel.delete');
     });
 
+    // Kategori Routes
+    Route::prefix('admin/kategori')->group(function () {
+        Route::get('/', [AdminKategoriController::class, 'index'])->name('admin.kategori.index');
+        Route::get('/create', [AdminKategoriController::class, 'create'])->name('admin.kategori.create');
+        Route::post('/store', [AdminKategoriController::class, 'store'])->name('admin.kategori.store');
+        Route::get('/edit/{id}', [AdminKategoriController::class, 'edit'])->name('admin.kategori.edit');
+        Route::put('/update/{id}', [AdminKategoriController::class, 'update'])->name('admin.kategori.update');
+        Route::post('/delete/{id}', [AdminKategoriController::class, 'destroy'])->name('admin.kategori.delete');
+    });
+
+
     // Soal Routes
     Route::prefix('admin/soal')->group(function () {
         Route::get('/', [AdminSoalController::class, 'index'])->name('admin.soal.index');
         Route::get('/create', [AdminSoalController::class, 'create'])->name('admin.soal.create');
         Route::post('/store', [AdminSoalController::class, 'store'])->name('admin.soal.store');
         Route::get('/edit/{id}', [AdminSoalController::class, 'edit'])->name('admin.soal.edit');
-        Route::post('/update/{id}', [AdminSoalController::class, 'update'])->name('admin.soal.update');
+        Route::put('/update/{id}', [AdminSoalController::class, 'update'])->name('admin.soal.update');
         Route::post('/delete/{id}', [AdminSoalController::class, 'destroy'])->name('admin.soal.delete');
     });
 

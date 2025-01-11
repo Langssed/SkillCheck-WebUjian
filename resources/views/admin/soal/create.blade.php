@@ -36,6 +36,19 @@
                     </select>
                 </div>
 
+                <!-- Pilih Kategori -->
+                <div class="mb-4">
+                    <label for="kategori_id" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <select id="kategori_id" name="kategori_id" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-200"
+                            required>
+                        <option value="">Pilih Kategori</option>
+                        @foreach ($kategori as $item)
+                            <option value="{{ $item->id }}" data-mapel-id="{{ $item->mapel_id }}">{{ $item->nama_kategori }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <!-- Input Pertanyaan -->
                 <div class="mb-4">
                     <label for="question" class="block text-gray-700 font-semibold mb-2">Pertanyaan</label>
@@ -47,18 +60,11 @@
                 <!-- Input Pilihan Jawaban -->
                 <div class="mb-4">
                     <label for="options" class="block text-gray-700 font-semibold mb-2">Pilihan Jawaban</label>
-                    <input type="text" id="options[]" name="options[]" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-200"
-                           placeholder="Pilihan 1" required>
-                    <input type="text" id="options[]" name="options[]" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring focus:ring-yellow-200"
-                           placeholder="Pilihan 2" required>
-                    <input type="text" id="options[]" name="options[]" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring focus:ring-yellow-200"
-                           placeholder="Pilihan 3" required>
-                    <input type="text" id="options[]" name="options[]" 
-                           class="w-full px-4 py-2 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring focus:ring-yellow-200"
-                           placeholder="Pilihan 4" required>
+                    @for ($i = 1; $i <= 4; $i++)
+                        <input type="text" id="options[]" name="options[]" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg mt-2 focus:outline-none focus:ring focus:ring-yellow-200"
+                               placeholder="Pilihan {{ $i }}" required>
+                    @endfor
                 </div>
 
                 <!-- Input Jawaban Benar -->
@@ -68,10 +74,9 @@
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-200"
                             required>
                         <option value="">Pilih Jawaban Benar</option>
-                        <option value="1">Pilihan 1</option>
-                        <option value="2">Pilihan 2</option>
-                        <option value="3">Pilihan 3</option>
-                        <option value="4">Pilihan 4</option>
+                        @for ($i = 1; $i <= 4; $i++)
+                            <option value="{{ $i }}">Pilihan {{ $i }}</option>
+                        @endfor
                     </select>
                 </div>
 
@@ -90,5 +95,25 @@
         </div>
 
     </div>
+
+    <!-- Script untuk memfilter kategori -->
+    <script>
+        document.getElementById('mapel_id').addEventListener('change', function () {
+            const selectedMapel = this.value;
+            const kategoriOptions = document.querySelectorAll('#kategori_id option');
+
+            kategoriOptions.forEach(option => {
+                const mapelId = option.getAttribute('data-mapel-id');
+                if (mapelId === selectedMapel || !mapelId) {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+
+            // Reset pilihan kategori
+            document.getElementById('kategori_id').value = '';
+        });
+    </script>
 </body>
 </html>
